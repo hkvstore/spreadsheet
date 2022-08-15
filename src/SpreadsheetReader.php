@@ -103,6 +103,7 @@ class SpreadsheetReader implements CountableReader, \SeekableIterator
     /**
      * @return int
      */
+    #[\ReturnTypeWillChange]
     public function count()
     {
         $count = count($this->worksheet);
@@ -122,6 +123,7 @@ class SpreadsheetReader implements CountableReader, \SeekableIterator
      *
      * @author  Derek Chafin <infomaniac50@gmail.com>
      */
+    #[\ReturnTypeWillChange]
     public function current()
     {
         $row = $this->worksheet[$this->pointer];
@@ -165,6 +167,7 @@ class SpreadsheetReader implements CountableReader, \SeekableIterator
      *
      * @return int
      */
+    #[\ReturnTypeWillChange]
     public function key()
     {
         return $this->pointer;
@@ -175,6 +178,7 @@ class SpreadsheetReader implements CountableReader, \SeekableIterator
      *
      * @return void Any returned value is ignored.
      */
+    #[\ReturnTypeWillChange]
     public function next()
     {
         $this->pointer++;
@@ -189,6 +193,7 @@ class SpreadsheetReader implements CountableReader, \SeekableIterator
      *
      * @return void Any returned value is ignored.
      */
+    #[\ReturnTypeWillChange]
     public function rewind()
     {
         if (null === $this->headerRowNumber) {
@@ -207,6 +212,7 @@ class SpreadsheetReader implements CountableReader, \SeekableIterator
      *
      * @return void Any returned value is ignored.
      */
+    #[\ReturnTypeWillChange]
     public function seek($pointer)
     {
         $this->pointer = $pointer;
@@ -243,6 +249,7 @@ class SpreadsheetReader implements CountableReader, \SeekableIterator
      * @return bool The return value will be casted to boolean and then evaluated.
      * Returns true on success or false on failure.
      */
+    #[\ReturnTypeWillChange]
     public function valid()
     {
         return isset($this->worksheet[$this->pointer]);
